@@ -4,6 +4,10 @@ import logging
 import pandas as pd
 logging.getLogger('taxii2client').setLevel(logging.CRITICAL)
 
+# looking up by keywords is hard and slow,
+# so for now just hard code relevant attacks
+
+
 def get_mitigations_for_technique(technique_id):
     # Initialize the client
     lift = attack_client()
