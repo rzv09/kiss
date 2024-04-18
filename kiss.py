@@ -34,7 +34,10 @@ class KISS:
         output_csv_path = 'parsed_snort_alerts.csv'
         save_alerts_to_csv(alerts, output_csv_path)
     
-    
+    # first, scan the detection file
+    # second, scan the IDS/IPS file
+    # then, provide recommendations based on that
+    # (finally) implement multithreaded file reading
     
 
 

@@ -1,4 +1,5 @@
 import csv
+import re
 
 def parse_snort_alerts(file_path):
     """
@@ -14,26 +15,28 @@ def parse_snort_alerts(file_path):
     with open(file_path, 'r') as file:
         for line in file:
             if line.startswith('[**]'):
-                # Start of a new alert
-                alert = {}
-                header = line.strip().split('] [')
-                alert['sid'] = header[1].split(':')[1]
-                alert['rev'] = header[1].split(':')[2]
-                
-                # Read the next line for classification and priority
-                next_line = next(file).strip()
-                classification_part = next_line.split('] [')
-                alert['classification'] = classification_part[0].split(': ')[1]
+                try:
+                    # Start of a new alert
+                    alert = {}
+                    # header = line.strip().split('] [')
+                    # alert['sid'] = header[1].split(':')[1]
+                    # alert['rev'] = header[1].split(':')[2]
+                    match = re.search(r'\[\*\*\] \[[^\]]+\] ([^\[]+)', line)
+                    if match:
+                        alert['type'] = match.group(1).strip()
 
-                # Read the next line for timestamp and IP details
-                next_line = next(file).strip()
-                parts = next_line.split(' ')
-                alert['timestamp'] = parts[0]
-                alert['src_ip'] = parts[1].split(':')[0]
-                alert['src_port'] = parts[1].split(':')[1]
-                alert['dst_ip'] = parts[3].split(':')[0]
-                alert['dst_port'] = parts[3].split(':')[1]
-                alerts.append(alert)
+                    # skip one line
+                    next_line = next(file)
+
+                    # Read the next line for timestamp and IP details
+                    next_line = next(file).strip()
+                    parts = next_line.split(' ')
+                    alert['timestamp'] = parts[0]
+                    alert['src_ip'] = parts[1]
+                    alert['dst_ip'] = parts[3]
+                    alerts.append(alert)
+                except:
+                    pass
     return alerts
 
 def save_alerts_to_csv(alerts, output_file):
@@ -51,9 +54,9 @@ def save_alerts_to_csv(alerts, output_file):
         dict_writer.writerows(alerts)
 
 # Usage
-# alert_file_path = './snort_alerts/alert.1'
-# alerts = parse_snort_alerts(alert_file_path)
-# print(alerts)  # Optionally print the alerts to see the output
+alert_file_path = './snort_alerts/alert.3'
+alerts = parse_snort_alerts(alert_file_path)
+print(alerts)  # Optionally print the alerts to see the output
 
-# output_csv_path = 'parsed_snort_alerts.csv'
-# save_alerts_to_csv(alerts, output_csv_path)
+output_csv_path = 'parsed_snort_alerts.csv'
+save_alerts_to_csv(alerts, output_csv_path)

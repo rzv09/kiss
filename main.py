@@ -6,7 +6,7 @@ def main():
     inf_logger = InferenceLogger('./model/best.pt')
     image_dir = sys.argv[1]
     inf_logger.detect(image_dir)
-    find_low_scores()
+    find_low_scores(print_alerts=True)
 
 if __name__ == "__main__":
     main()
