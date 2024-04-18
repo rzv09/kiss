@@ -54,7 +54,7 @@ def get_attack_data():
     #         print("No specific mitigations provided.")
     #     print("\n")
 
-    tech = lift.get_object_by_attack_id('attack-pattern', 'T1498.001')
+    tech = lift.get_object_by_attack_id('attack-pattern', 'T1046')
     tech = tech[0]
 
     # print(tech)
@@ -121,10 +121,10 @@ id = get_attack_data()
 # print(id)
 mitre_attack_data = MitreAttackData("enterprise-attack.json")
 # get_mitigations_mitigating_technique('attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3')
-technique_stix_id = "attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3"
-mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(technique_stix_id)
+# technique_stix_id = "attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3"
+mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(id)
 
-print(f"Mitigations mitigating T1014 ({len(mitigations_mitigating)}):")
+print(f"Mitigations mitigating {id} ({len(mitigations_mitigating)}):")
 for m in mitigations_mitigating:
     mitigation = m["object"]
     print(f"* {mitigation.name} ({mitre_attack_data.get_attack_id(mitigation.id)})")

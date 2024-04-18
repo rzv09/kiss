@@ -18,9 +18,6 @@ def parse_snort_alerts(file_path):
                 try:
                     # Start of a new alert
                     alert = {}
-                    # header = line.strip().split('] [')
-                    # alert['sid'] = header[1].split(':')[1]
-                    # alert['rev'] = header[1].split(':')[2]
                     match = re.search(r'\[\*\*\] \[[^\]]+\] ([^\[]+)', line)
                     if match:
                         alert['type'] = match.group(1).strip()
