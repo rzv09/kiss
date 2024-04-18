@@ -6,7 +6,7 @@ logging.getLogger('taxii2client').setLevel(logging.CRITICAL)
 
 # looking up by keywords is hard and slow,
 # so for now just hard code relevant attacks
-
+mitre_attack_data = MitreAttackData("enterprise-attack.json")
 
 def get_mitigations_for_technique(technique_id):
     # Initialize the client
@@ -88,18 +88,23 @@ def search_mitre_techniques(alerts):
 # mitre_techniques = search_mitre_techniques(alerts)
 # print(mitre_techniques)
 
+def find_mitigations(id):
+    mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(id)
+    print(f"Mitigations mitigating {id} ({len(mitigations_mitigating)}):")
+    for m in mitigations_mitigating:
+        mitigation = m["object"]
+        print(f"* {mitigation.name} ({mitre_attack_data.get_attack_id(mitigation.id)})")
 
+if __name__ == '__main__':
 
+    # Execute the function
+    id = get_attack_data()
+    print(id)
+    # get_mitigations_mitigating_technique('attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3')
+    # technique_stix_id = "attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3"
+    mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(id)
 
-# Execute the function
-id = get_attack_data()
-# print(id)
-mitre_attack_data = MitreAttackData("enterprise-attack.json")
-# get_mitigations_mitigating_technique('attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3')
-# technique_stix_id = "attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3"
-mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(id)
-
-print(f"Mitigations mitigating {id} ({len(mitigations_mitigating)}):")
-for m in mitigations_mitigating:
-    mitigation = m["object"]
-    print(f"* {mitigation.name} ({mitre_attack_data.get_attack_id(mitigation.id)})")
+    print(f"Mitigations mitigating {id} ({len(mitigations_mitigating)}):")
+    for m in mitigations_mitigating:
+        mitigation = m["object"]
+        print(f"* {mitigation.name} ({mitre_attack_data.get_attack_id(mitigation.id)})")

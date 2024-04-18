@@ -3,7 +3,8 @@ import json
 import random
 import os
 import hashlib
-
+import csv
+from attack_types_ids import KNOWN_ATTACKS_AND_MITIGATIONS
 
 def file_checksum(filename):
     hash_md5 = hashlib.md5()
@@ -50,6 +51,28 @@ def generate_large_json_file(file_path, target_size_mb):
             index += 1
         file.write(']')  # End of JSON array
 
+def normalize_text(text):
+    return text.lower().strip()
+
+def match_signatures_with_ids(csvfile_path):
+    normalized_keys = {normalize_text(key): key for key in KNOWN_ATTACKS_AND_MITIGATIONS.keys()}
+    pattern_ids_matched = []
+
+    with open(csvfile_path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            normalized_type = normalize_text(row['type'])
+    
+            # Check if any normalized key is a substring of the normalized type
+            matches = [key for key, original_key in normalized_keys.items() if key in normalized_type]
+            if matches:
+                for match in matches:
+                    print(f"Match found: Original Type: {row['type']}, Dictionary Key: {normalized_keys[match]}, Pattern ID: {KNOWN_ATTACKS_AND_MITIGATIONS[normalized_keys[match]]}")
+                    pattern_ids_matched.append(KNOWN_ATTACKS_AND_MITIGATIONS[normalized_keys[match]])
+            else:
+                print(f"No matches found for type: {row['type']}")
+
+    return pattern_ids_matched
 # Usage
 # generate_large_json_file('large_detection_log.json', 500)  # 500 MB
 if __name__ == '__main__':

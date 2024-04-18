@@ -5,9 +5,6 @@ import json
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 log_dump_path = './detections_logs.json'
 
-# model = YOLO('./model/best.pt')
-# print(model)
-
 class InferenceLogger:
 
     def __init__(self, modelPath) -> None:

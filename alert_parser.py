@@ -51,9 +51,11 @@ def save_alerts_to_csv(alerts, output_file):
         dict_writer.writerows(alerts)
 
 # Usage
-alert_file_path = './snort_alerts/alert.3'
-alerts = parse_snort_alerts(alert_file_path)
-print(alerts)  # Optionally print the alerts to see the output
+if __name__ == '__main__':
+    alert_file_path = './snort_alerts/alert.3'
+    alerts = parse_snort_alerts(alert_file_path)
+    print(alerts)  # Optionally print the alerts to see the output
 
-output_csv_path = 'parsed_snort_alerts.csv'
-save_alerts_to_csv(alerts, output_csv_path)
+    output_csv_path = 'parsed_snort_alerts.csv'
+    save_alerts_to_csv(alerts, output_csv_path)
+

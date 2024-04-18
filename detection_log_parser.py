@@ -11,7 +11,7 @@ def find_low_scores(print_alerts=False):
         data = json.load(file)
 
     low_conf_scores = []
-    print(len(data))
+    # print(len(data))
     for item in data:
         if item['confidence'] < 0.5:
             record = {
@@ -25,7 +25,7 @@ def find_low_scores(print_alerts=False):
         print('##########################################')
         print(f"Potential attacks:{len(low_conf_scores)}")
         print('##########################################')
-    return low_conf_scores
+    return len(data), low_conf_scores
 
 def process_chunk(chunk):
     low_conf_rec = []
@@ -57,9 +57,10 @@ def find_low_scores_parallel(print_alerts=False):
         for future in concurrent.futures.as_completed(future_to_chunk):
             results.extend(future.result())        
 
-    print('##########################################')
-    print(f"Potential attacks:{len(results)}")
-    print('##########################################')
+    if (print_alerts):
+        print('##########################################')
+        print(f"Potential attacks:{len(results)}")
+        print('##########################################')
 
 def read_file(file_path):
     with open(file_path, 'r') as file:
