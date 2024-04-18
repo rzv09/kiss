@@ -1,0 +1,5 @@
+attackcti==0.4.2
+mitreattack_python==3.0.3
+orjson==3.10.1
+pandas==2.0.3
+ultralytics==8.1.42
