@@ -36,36 +36,11 @@ def get_attack_data():
     # Initialize the client
     lift = attack_client()
 
-    # Retrieve all techniques from the ATT&CK knowledge base
-    # all_techniques = lift.get_techniques()
-    # print(all_techniques[0])
-
-    # Filter for techniques that involve UDP flood (e.g., by keyword search)
-    # udp_flood_techniques = [tech for tech in all_techniques if 'UDP' in tech['name']] #and 'flood' in tech['description'].lower()]
-
-    # Print out relevant techniques and their mitigations
-    # for tech in udp_flood_techniques:
-    #     print(f"Technique: {tech['name']}")
-    #     print(f"Description: {tech['description']}")
-    #     if 'mitigations' in tech:
-    #         for mit in tech['mitigations']:
-    #             print(f"Mitigation: {mit['description']}")
-    #     else:
-    #         print("No specific mitigations provided.")
-    #     print("\n")
-
     tech = lift.get_object_by_attack_id('attack-pattern', 'T1046')
     tech = tech[0]
 
-    # print(tech)
     print(f"Technique: {tech['name']}")
     print(f"Description: {tech['description']}")
-    # print(f"mitigations: {tech['mitigations']}")
-    # if 'mitigations' in tech:
-    #     for mit in tech['mitigations']:
-    #         print(f"Mitigation: {mit['description']}")
-    # else:
-    #     print("No specific mitigations provided.")
     print("\n")    
     return tech['id']
 
