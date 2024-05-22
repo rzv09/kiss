@@ -13,6 +13,8 @@ What this code does is:
 ### 4. For any network attack alerts with known DoS signatures, we query the MITRE ATT&CK database for potential mitigations and provide them as output
 ### 5. If no alerts were generated, but the performance still dropped, there is probably an adversarial attack on the ML service.
 
+### Example recommendations:
+![alt text](https://github.com/rzv09/kiss/blob/main/mitigations.png?raw=true)
 ## Installation
 To install, run
  pip install -r requirements. txt
