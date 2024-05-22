@@ -1,5 +1,7 @@
 import csv
 import re
+from utils import match_signatures_with_ids
+from query_attackcti import find_mitigations
 
 def parse_snort_alerts(file_path):
     """
@@ -50,12 +52,47 @@ def save_alerts_to_csv(alerts, output_file):
         dict_writer.writeheader()
         dict_writer.writerows(alerts)
 
+def parse_new_logs(file_path, output_filename):
+    # Define the regular expression pattern to extract the needed data
+    pattern = re.compile(r"""
+        (?P<timestamp>\d{2}/\d{2}-\d{2}:\d{2}:\d{2}\.\d{6})   # timestamp
+        \s+\[\*\*\]\s+\[\d+:\d+:\d+\]\s+                       # ignore rule details
+        (?P<type>[\w\s]+)                               # attack type
+        \s+\[\*\*\]\s+                                         # ignore marker
+        (?:\[.*?\]\s+)?                                        # ignore optional parts like classification
+        \{(?P<protocol>\w+)\}\s+                               # protocol
+        (?P<src_ip>\d+\.\d+\.\d+\.\d+):(?P<src_port>\d+)\s+    # source IP and port
+        -+\s*>\s*
+        (?P<dst_ip>\d+\.\d+\.\d+\.\d+):(?P<dst_port>\d+)       # destination IP and port
+        """, re.VERBOSE)
+    
+    # Parse the content
+    parsed_data = []
+    # for line in log_content.strip().split('\n'):
+    with open(file_path, 'r') as file:
+        for line in file:
+            match = pattern.search(line)
+            if match:
+                parsed_data.append(match.groupdict())
+
+    # Write to CSV file
+    # with open(output_filename, 'a', newline='') as csvfile:
+    #     fieldnames = ['timestamp', 'attack_type', 'protocol', 'src_ip', 'src_port', 'dst_ip', 'dst_port']
+    #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    #     writer.writeheader()
+    #     for entry in parsed_data:
+    #         writer.writerow(entry)
+    return parsed_data
+
 # Usage
 if __name__ == '__main__':
-    alert_file_path = './snort_alerts/alert.3'
-    alerts = parse_snort_alerts(alert_file_path)
+    alert_file_path = './snort_alerts/SnortAlert.txt'
+    output_csv_path = 'parsed_snort_alerts.csv'
+    alerts = parse_new_logs(alert_file_path, output_csv_path)
     print(alerts)  # Optionally print the alerts to see the output
 
-    output_csv_path = 'parsed_snort_alerts.csv'
     save_alerts_to_csv(alerts, output_csv_path)
 
+    pattern_ids_matched = match_signatures_with_ids(output_csv_path)
+    for pattern_id in pattern_ids_matched:
+        find_mitigations(pattern_id)

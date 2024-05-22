@@ -5,3 +5,6 @@ wda
 detections_logs.json
 enterprise-attack.json
 /images
+project.tar.gz
+/mixed
+/stop_signs

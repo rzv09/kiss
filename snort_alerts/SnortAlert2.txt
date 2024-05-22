@@ -1,0 +1,14 @@
+1 04/24-13:28:16.881015 [**] [1:249:8] DDOS mstream client to handler [**] [Classification: Attempted Denial of Service] [Priority: 2] {TCP} 172.16.21.52:40908-> 172.16.31.30:15104 2 04/24-17:28:16.881015 [**] [1:249:8] DDOS mstream client to handler [**] [Classification: Attempted Denial of Service] [Priority: 2] {TCP} 172.16.21.52:40908 -> 172.16.31.30:15104 3 04/24-13:28:17.020695 [**] [1:1418:11] SNMP request tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.21.52:35226 -> 172.16.31.30:161
+4 04/24-17:28:17.020695 [**] [1:1418:11] SNMP request tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.21.52:35226-> 172.16.31.30:161
+5 04/24-17:28:25.502520 [**] [1:1421:11] SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.21.52:54758-> 172.16.31.30:705
+6 04/24-13:28:25.502520 [**] [1:1421:11] SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.21.52:54758 -> 172.16.31.30:705
+7 04/24-17:28:36.253901 [**] [1:1420:11] SNMP trap tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.21.52:59822-> 172.16.31.30:162
+8 04/24-13:28:36.253902 [**] [1:1420:11] SNMP trap tcp [**] [Classification: Attempted
+Information Leak] [Priority: 2] {TCP} 172.16.21.52:59822 -> 172.16.31.30:162
+9 04/24-13:35:58.297653 [**] [1:527:8] BAD-TRAFFIC same SRC/DST [**] [Classification: Potentially Bad Traffic] [Priority: 2] {IPV6-ICMP} :: ->ff02::1:ffae:5499
+10 04/24-18:35:31.763251 [**] [1:10000006:0] SYN SCAN [**] [Priority: 0] {TCP} 172.16.41.66:37504 -> 172.16.31.30:22
+11 04/24-18:35:31.763251 [**] [1:10000004:0] NAMP ping sweep scan [**] [Priority: 0] {TCP}
+172.16.41.66:37504 -> 172.16.31.30:22
+12 04/24-18:35:31.778142 [**] [1:1421:11] SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.41.66:38650 -> 172.16.31.30:705
+13 04/24-18:35:31.911463 [**] [1:1418:11] SNMP request tcp [**] [Classification: Attempted
+Information Leak] [Priority: 2] {TCP} 172.16.41.66:51550 -> 172.16.31.30:161

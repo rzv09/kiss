@@ -1,0 +1,36 @@
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack9.png: 416x416 (no detections), 107.1ms
+Speed: 6.7ms preprocess, 107.1ms inference, 1657.7ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack8.png: 416x416 (no detections), 37.0ms
+Speed: 1.1ms preprocess, 37.0ms inference, 0.3ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack3.jpg: 416x416 4 Green Lights, 41.5ms
+Speed: 0.5ms preprocess, 41.5ms inference, 3.8ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack2.jpg: 416x416 (no detections), 44.6ms
+Speed: 0.8ms preprocess, 44.6ms inference, 0.3ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack0.jpg: 416x416 1 Speed Limit 80, 35.8ms
+Speed: 0.5ms preprocess, 35.8ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack1.jpg: 416x416 1 Speed Limit 30, 36.2ms
+Speed: 0.5ms preprocess, 36.2ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack5.jpg: 416x416 1 Stop, 37.0ms
+Speed: 0.6ms preprocess, 37.0ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack4.jpg: 416x416 (no detections), 35.2ms
+Speed: 0.5ms preprocess, 35.2ms inference, 0.3ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack6.png: 416x416 (no detections), 37.4ms
+Speed: 0.7ms preprocess, 37.4ms inference, 0.3ms postprocess per image at shape (1, 3, 416, 416)
+
+image 1/1 /Users/ramanzacarenko/kiss/images/attack7.png: 416x416 (no detections), 36.0ms
+Speed: 0.7ms preprocess, 36.0ms inference, 0.3ms postprocess per image at shape (1, 3, 416, 416)
+############################
+   DETECTION LOG WRITTEN    
+############################
+File checksum: 61efed975b1fae7491b7cb8f3f91e656
+find_low_scores took 0.00010204315185546875 seconds
+list index out of range

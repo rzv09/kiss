@@ -36,7 +36,7 @@ def get_attack_data():
     # Initialize the client
     lift = attack_client()
 
-    tech = lift.get_object_by_attack_id('attack-pattern', 'T1046')
+    tech = lift.get_object_by_attack_id('attack-pattern', 'T1602.001')
     tech = tech[0]
 
     print(f"Technique: {tech['name']}")
@@ -65,7 +65,7 @@ def search_mitre_techniques(alerts):
 
     for index, row in alerts.iterrows():
         # Assuming 'message' contains the descriptive part of the alert
-        message = row['classification']
+        message = row['attack_type']
         # Search for techniques by keywords extracted from the message
         keywords = message.split()  # Simple split, can be refined
         techniques_found = []
@@ -101,10 +101,14 @@ if __name__ == '__main__':
     id = get_attack_data()
     print(id)
     # get_mitigations_mitigating_technique('attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3')
-    # technique_stix_id = "attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3"
-    mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(id)
+    # # technique_stix_id = "attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3"
+    # mitigations_mitigating = mitre_attack_data.get_mitigations_mitigating_technique(id)
 
-    print(f"Mitigations mitigating {id} ({len(mitigations_mitigating)}):")
-    for m in mitigations_mitigating:
-        mitigation = m["object"]
-        print(f"* {mitigation.name} ({mitre_attack_data.get_attack_id(mitigation.id)})")
+    # print(f"Mitigations mitigating {id} ({len(mitigations_mitigating)}):")
+    # for m in mitigations_mitigating:
+    #     mitigation = m["object"]
+    #     print(f"* {mitigation.name} ({mitre_attack_data.get_attack_id(mitigation.id)})")
+    # csv_path = 'parsed_snort_alerts.csv'
+    # alerts = load_alerts(csv_path)
+    # mitre_techniques = search_mitre_techniques(alerts)
+    # print(mitre_techniques)

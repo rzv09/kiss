@@ -24,6 +24,13 @@ class InferenceLogger:
                     'confidence': detection[0].boxes.conf.squeeze().item(),
                     'class': detection[0].names[class_num]
                 })
+            else:
+                self.results_arr.append({
+                    'image': img_path,
+                    'class_num': -1,
+                    'confidence': -1,
+                    'class': -1,
+                })
     
     def detect(self, dir):
         for filename in os.listdir(dir):

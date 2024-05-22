@@ -1,6 +1,6 @@
 # KISS
 ## Description
-Knowledge Information System Service (KISS) is novel approach to
+Knowledge Integration System Service (KISS) is novel approach to
 detect and mitigate malicious attacks on Machine Learning with
 Integrated Network (MLIN) systems. Unlike existing methods,
 KISS examines how attacks on individual components impact

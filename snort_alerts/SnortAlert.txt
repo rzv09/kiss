@@ -1,0 +1,12 @@
+1 04/28-12:08:37.676018 [**] [1:10000006:0] SYN SCAN [**] [Priority: 0] {TCP} 172.16.161.32:47240 -> 172.16.31.30:22
+2 04/28-12:08:37.676018
+[**] [1:10000004:0] NAMP ping sweep scan [**] [Priority: 0] {TCP}
+172.16.161.32:47240 -> 172.16.31.30:22
+3 04/28-12:08:37.770497 [**] [1:1421:11] SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.161.32:45854 -> 172.16.31.30:705
+4 04/28-12:08:37.921248 [**] [1:1418:11] SNMP request tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 172.16.161.32:59320 -> 172.16.31.30:161
+5 04/28-17:21:05.477650 [**] [1:469:3] ICMP PING NMAP [**] [Classification: Attempted Information Leak] [Priority: 2] {ICMP} 10.160.50.2 -> 172.16.31.30
+6 04/28-17:21:21.645077 [**] [1:10000006:0] SYN SCAN [**] [Priority: 0] TCP 10.160.50.2:64993 - > 172.16.31.30:22
+7 04/28-17:21:21.645077 [**] [1:10000004:0] NAMP ping sweep scan [**] [Priority: 0] {TCP} 10.160.50.2:64993-> 172.16.31.30:22
+8 04/28-17:21:21.746767 [**] [1:1421:11] SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 10.160.50.2:64993 -> 172.16.31.30:705
+9 04/28-17:21:21.846391 [**] [1:1418:11] SNMP request tcp [**] [Classification: Attempted
+Information Leak] [Priority: 2] {TCP} 10.160.50.2:64993 -> 172.16.31.30:161

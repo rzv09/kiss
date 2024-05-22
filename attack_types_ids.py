@@ -7,6 +7,8 @@ KNOWN_ATTACKS_AND_MITIGATIONS = {
     'ICMP FLOOD' : 'attack-pattern--0bda01d5-4c1d-4062-8ee2-6872334383c3',
     'ICMP ECHO REQUEST SCAN': 'attack-pattern--67073dde-d720-45ae-83da-b12d5e73ca3b',
     'TCP SYN SCAN': 'attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88',
+    'SYN SCAN': 'attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88',
+    'SNMP request tcp': 'attack-pattern--ee7ff928-801c-4f34-8a99-3df965e581a5',
     'UDP SCAN': 'attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88'
 }
 
